@@ -1,0 +1,66 @@
+\input{./include/start.tex}
+
+\def\theconference{HotWireless'15}
+\def\thetitle{Investigating Reciprocal \wifi{} Sharing Opportunities Using Smartphones}
+\def\theauthors{Jinghao Shi, Liwen Gui, Chunming Qiao, Dimitrios Koutsonikolas, and Geoffrey Challen}
+\def\thepapernumber{5}
+\def\aftercaptiongap{-4mm}
+%\def\isdraft{}
+%\def\isblue{}
+
+\ifdefined\isdraft
+  \usepackage{draftwatermark}
+  \SetWatermarkText{Under Submission}
+  \SetWatermarkScale{0.6}
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \lhead{}
+  \chead{Under Submission to \theconference{}. Do not distribute.}
+  \rhead{}
+\else
+\fi
+
+\begin{document}
+
+\ifdefined\isblue
+\begin{textblock}{1}(6.4,-0.4)
+\noindent\href{http://blue.cse.buffalo.edu}{\includegraphics[width=0.6in]{./figures/logos/blue.jpg}}
+\end{textblock}
+\else
+\fi
+
+\title{\thetitle\vspace*{-0.3in}}
+
+\numberofauthors{1}
+
+\author{%
+  \alignauthor Jinghao Shi, Liwen Gui, Chunming Qiao\\Dimitrios Koutsonikolas and Geoffrey Challen\\%
+  \affaddr{University at Buffalo}\\[0.05in]%
+  \email{\texttt{\{jinghaos,liwengui,dimitrio,challen\}@buffalo.edu}}\\
+  \href{http://blue.cse.buffalo.edu/projects/pocketsniffer}{\texttt{http://blue.cse.buffalo.edu/projects/pocketsniffer}}\\[0.05in]%
+Paper \#\thepapernumber{}%
+\vspace*{-0.1in}
+}
+
+\hypersetup{%
+  pdfinfo={%
+    Title={\thetitle},
+    Author={\theauthors},
+  }
+}
+
+
+\maketitle
+
+\input{abstract.tex}
+\input{introduction.tex}
+\input{conclusion.tex}
+
+{\footnotesize
+  \balance
+  \bibliographystyle{abbrv}
+  \bibliography{references}
+}
+
+\end{document}
