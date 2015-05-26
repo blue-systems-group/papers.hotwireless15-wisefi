@@ -55,17 +55,14 @@ In following analysis, we focus on home \wifi{} networks which are more likely
 to reveal stable and immediate reciprocal sharing opportunities. For this
 purpose, we first develop several heuristics to identify the home AP for each
 device in the dataset. The intuition is that the devices are most likely
-connected to home AP at night. More specifically, we first identify a set of
-home AP candidates for each device by looking at the \wifi{} sessions happened
-during 12~AM and 4~AM every night during the data collection period. We then
-eliminate false positives by filtering out candidate APs that provides fewer
-than 100 sessions or less than 10 hours of total connection time.
+connected to home AP at night. More specifically, to identify the home AP for a
+device, we look at \wifi{} sessions happened during 12~AM and 4~AM and count the
+number of days that the device connects to each AP during this time period. We
+then identify the AP which has the largest day count as the device's home AP,
+provided that the day count is larger than a threshold (30 days).
 
-After applying the above heuristics, the home AP information of 123 devices are
-identified, including 118 unique SSIDs and 126 unique BSSIDs. Some factory
-preset SSIDs, such as \texttt{linksys}, are used by multiple home APs, and
-certain devices have multiple home BSSIDs due to 2.4/5~GHz dual band router or
-AP replacement.
+After applying the above heuristics, the home AP information of 107 devices are
+identified, including 101 unique BSSIDs and 99 unique SSIDs.
 
 \subsection{\wifi{} Session Signal Strength}
 \label{subsec:better}
@@ -103,7 +100,7 @@ We classify all scan results reported during \wifi{} sessions with home APs into
 two categories: sub-optimal and the rest. For each device, we calculate the
 percentage of time when the scan results indicate sub-optimal association.
 Figure~\ref{fig:suboptimal} shows the CDF of such percentage for 
-the 123 devices. We make several observations. First, for 80\% of the devices,
+the 107 devices. We make several observations. First, for 80\% of the devices,
 their home APs usually provides best signal (sub-optimal percentage less than
 20\%). This result is not particularly surprising considering that home APs are
 usually carefully positioned to try to provide good coverage. Second, we notice
