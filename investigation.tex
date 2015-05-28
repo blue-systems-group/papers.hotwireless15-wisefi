@@ -146,16 +146,41 @@ neighbor APs.
 To obtain the physical neighbor information, we build a home AP neighbor graph
 $G_{neighbor}=(V, E)$, where $V$ is the set of all home APs, and $\langle AP_i,
 AP_j \rangle \in E$ if $AP_i$ and $AP_j$ appear in the same result and both AP's
-signal strengths are larger than a threshold (80~dBm). Figure 3 shows the
-constructed $G_{neighbor}$ from the dataset, where nodes with no edges are
-omitted. There are three clear cluster of home APs. We also verified that APs in
-the same cluster have different SSID and manufacturer, confirming that they are
-not centrally deployed or managed.
+signal strengths are larger than a threshold (80~dBm), meaning $AP_i$ and $AP_j$
+are physically colocated with each other. Figure 3 shows the constructed $G_{neighbor}$
+from the dataset, where nodes with no edges are omitted. There are three clear
+cluster of home APs. We also verified that APs in the same cluster have
+different SSID and manufacturer, confirming that they are not centrally deployed
+or managed.
+
+Next, we look into potential AP sharing opportunities among colocated APs. For
+each edge $\langle AP_i, AP_j \rangle \in E$, if $AP_i$'s clients receive better
+(by at least 5~dBm) signals  from $AP_j$, then we draw a directed edge $\langle
+AP_i\rightarrow AP_j \rangle}$, indicating that $AP_i$'s clients could
+potentially benefit from sharing access of $AP_j$. We also assign a weight to
+each directed edge to indicate how often such relationship happens.
+
+The updated home AP neighbor graph is shown in Figure~\ref{fig:reciprocal}.
+Sharing opportunities are sparse but exist. In particular, we observe one pair
+of home APs, node 12 and 1, which exhibit \textit{reciprocal} sharing
+relationships.
+
+\sloppy{%
+  We must note that \PhoneLab{} participants reside sparsely among the vast
+  Buffalo area, and the above analysis is further restricted to those 
+  participants that we can detect their home APs using heuristics described
+  Section~\ref{subsec:homeap}. The fact that reciprocal sharing opportunities
+  exist at all in such a sparse dataset is quite surprising, and motivates the
+  need for a system to detect and enable such reciprocal \wifi{} sharing.
+}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{./figures/HomeAPNeighborFigure.pdf}
-  \caption{\textbf{AP Neighbor and Sharing Graph.}}
+  \caption{\textbf{AP Neighbor and Sharing Graph.} Edges (both directed and
+    undirected) denote AP physical
+    colocation relationship. Directed edges indicate AP sharing opportunities.
+  Thickness of directed edges corresponds to edge weights.}
   \label{fig:reciprocal}
 \end{figure}
 
