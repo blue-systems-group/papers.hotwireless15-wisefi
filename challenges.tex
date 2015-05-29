@@ -1,8 +1,63 @@
 \section{Challenges}
 \label{sec:challenges}
 
-\subsection{Sharing Mechanisms}
+\subsection{Credential Sharing}
+\label{subsec:credential}
+
+As discussed in Section~\ref{subsec:sharing}, \wifi{} sharing without virtual
+guest network support is challenging. Simply sharing the \wifi{} credential of
+user's home AP to other \wisefi{} users is not only dangerous, but also making
+it difficult to revoke the access in the future. In worst case scenario, a user
+may be forced to change the home AP password and reconfigure the \wifi{}
+credential on all his/her devices just to revoke the access of the other
+\wisefi{} user. Although most commodity APs support client MAC black or white
+list feature, configuring them correctly is difficult for average users.
+
+On other hand, the sharing relationship should be built between users instead of
+devices. For instance, once the sharing is established, one user should be able
+to connect any of his/her devices, not only the smartphone, to the other user's
+home AP. Even the system can directly share the \wifi{} credential, configuring it
+on all devices is cumbersome.
+
+To overcome this challenge, we envision a programmable \wifi{} AP configuration
+API with two simple interfaces: \texttt{getAuthenticatedClients} and
+\texttt{setWhiteList}.  \texttt{getAuthenticatedClients} simply returns all the
+MAC addresses of clients that are associated with the AP through normal
+authentication. And \texttt{setWhiteList} sets a list of white list MAC addresses
+that the AP must accept their association requests regardless of the possible
+authentication errors (e.g., due to incorrect \wifi{} password). For security
+concerns, the AP accepts these two requests only if they are sent by devices that
+are correctly authenticated. The API can be implemented on top of existing SNMP
+protocols, or be provided through RESTful API through the HTTP server that
+is already integrated in most commodity APs.
+
+With the help of these two configuration APIs, the \wifi{} sharing can work as
+follows. Suppose the system has discovered the reciprocal sharing opportunity
+between user Alice and Bob. First, the \wisefi{} app on Bob's smartphone (which
+is associated with Bob's home AP through correct authentication) performs a
+\texttt{getAuthenticatedClients} request from Bob's home AP, to get the MAC
+addresses of all Bob's devices. The list of MAC addresses is then uploaded to
+\wisefi{} server and forwarded to the \wisefi{} app on Alice's smartphone.
+Alice's smartphone can then send \texttt{setWhiteList} request to Alice's home
+AP to grant access to all Bob's devices. At this point, Bob can connect any of
+his device to Alice's home AP using a dummy password. Later on, when the
+reciprocal sharing opportunity no long exists, the \wisefi{} server can instruct
+Alice's smartphone to perform another \texttt{setWhiteList} request to revoke
+Bob's access to Alice's home AP by removing the MAC addresses of Bob's devices
+from the white list.
+
+There are several advantages of this sharing approach. First, note that in both
+grant and revoke process, the \wifi{} credential of Alice's home AP is not
+shared with Bob or the \wisefi{} server, thus remains confidential. Second,
+revoking access of other \wisefi{} users simply requires a \texttt{setWhiteList}
+request, without needing to change the user's home AP \wifi{} credential.
+Furthermore, the \wisefi{} app can list other \wiseif{} users who are in a
+reciprocal sharing relationship and provide interfaces to let user manually
+revoke access of other users. Finally, protection and isolation can be enforced
+at the AP side by differentiating two type of clients: authenticated clients
+(user's own devices) and while list clients (\wisefi{} devices). Therefore, such
+sharing mechanism meets both the control and protection goals posed in
+Section~\ref{subsec:sharing}.
 
 \subsection{Bootstrap and Incentives}
 
-\subsection{

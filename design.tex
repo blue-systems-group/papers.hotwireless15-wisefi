@@ -45,11 +45,13 @@ network printer or home network storage.
 For home APs which support virtual guest network feature, the \wifi{} sharing
 can be achieved by only distributing the credential of guest network to other
 \wisefi{} users. Access and traffic policies can then be enforced on the guest
-network to achieve control and protection. For APs without guest network
-feature, however, cumbersome AP configurations may be required, such as MAC
-black or white list, routing table entry. Such configurations are probably too
-complicated for average users to perform. We discuss possible solutions in
-Section~\ref{sec:challenges}.
+network to achieve control and protection. Additionally, such isolation and
+enforcements are mostly likely already enabled by default for guest networks, so
+that even inexperienced user can configure the \wifi{} sharing through guest
+network. For APs without guest network feature, however, cumbersome AP
+configurations may be required, such as MAC black or white list, routing table
+entry. Such configurations are probably too complicated for average users to
+perform. We discuss possible solutions in Section~\ref{sec:challenges}.
 
 
 \subsection{Monitoring}
@@ -65,11 +67,11 @@ which can not be easily detected by the smartphone, also affect the link
 quality. Furthermore, last hop \wifi{} link quality does not necessarily
 determines the overall end-to-end network performance. Therefore, whether
 connecting to neighbor AP can indeed improve the user's network performance is
-unknown until the sharing is actually established. Second, it is important to ensure that
-the sharing remains reciprocal in long terms for fairness concerns. For
-instance, a \wisif{} user may have a new AP deployed at home such that the home APs
-always provide better or comparable \wifi{} coverage than the neighbor APs, and
-there are no longer needs to share neighbor APs. The system should be able to
-detect the termination of the reciprocal sharing relationship and revoke the
-peer's access to the user's home AP.
+unknown until the sharing is actually established. Second, it is important to
+ensure that the sharing remains reciprocal in long terms for fairness concerns.
+For instance, a \wisif{} user may have a new AP deployed at home such that the
+home APs always provide better or comparable \wifi{} coverage than the neighbor
+APs, and there are no longer needs to share neighbor APs. The system should be
+able to detect the termination of the reciprocal sharing relationship and revoke
+the peer's access to the user's home AP.
 
