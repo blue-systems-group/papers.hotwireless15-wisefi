@@ -1,13 +1,6 @@
 \section{Related Works}
 \label{sec:related}
 
-FON~\cite{fon} is a commercial Wifi sharing network, where registered users can
-roam over FON-supported Wifi networks. WLAN owners share their Wifi network
-either for small money compensation, or to get Wifi access to other users when
-they are way from home (roaming). FON aims at providing global Wifi sharing
-community where users want to connect to others' Wifi network because they
-are way from home and have no WLAN access. 
-
 OpenWireless movement~\cite{openwireless} is a community effort for ubiquitous
 Internet access. Volunteers participate the community by configuring their
 \wifi{} network with open access and a special SSID, \texttt{openwireless.org}
@@ -15,8 +8,26 @@ to advertise free access. Another goal of OpenWireless is arguably preserving us
 privacy by blending the user's network activity among all other users who share
 access to the open \wifi{} network.
 
-Both FON and OpenWireless aim at sharing \wifi{} access between strangers either
+On other hand, FON~\cite{fon} is a commercial Wifi sharing network, where
+registered users can roam over FON-supported Wifi networks. WLAN owners share
+their Wifi network either for small money compensation, or to get Wifi access to
+other users when they are way from home (roaming). FON aims at providing global
+Wifi sharing community where users want to connect to others' Wifi network
+because they are way from home and have no WLAN access. 
+
+Both OpenWireless and FON aim at sharing \wifi{} access between strangers either
 through financial incentive or volunteering. Whereas in our proposal, users share
 Wifi network locally (within neighbors) for better network performance, and the
 sharing relationship is immediate (between two parties) and stable (physical
 neighbor relationship).
+
+There are also rich literature on cooperative \wifi{} sharing. Dimopoulos
+\textit{et al.}~\cite{efstathiou2010controlled} propose a reciprocal Wifi
+sharing mechanism and later on extend it to a large scale peer-to-peer Wifi
+roaming framework~\cite{dimopoulos2010exploiting}. They mostly focus on the
+reciprocal manner of sharing: each user who share his/her WLAN will obtain
+digital proof service (\textit{receipts}), which represent a ``I-owe-you''
+relationship. These receipts can later on be consumed to get reciprocal Wifi
+access from other users. Such reputation mechanisms can also be applied to
+\wisefi{}, although they can be simplified since \wisief{} focus on sharing
+between two immediate peers with physical colocation relationship.
