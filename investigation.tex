@@ -74,8 +74,8 @@ same home AP.
 After identifying the home AP for each device, we ask two questions: (1) When
 the device is connected to its home AP, how often does it receive a better signal
 from neighbors' APs which it does not have access to? and (2) When the home AP
-fails to provide the best signal, is there one dominant neighbor AP 
-that provides better signal most of the time?
+fails to provide the best signal, are there dominant neighbor APs
+that provide better signal most of the time?
 
 \sloppy{%
   To answer the first question, we inspect scan results that are reported during
@@ -114,23 +114,21 @@ signal for more than 50\% of the time, suggesting that these users may benefit
 from sharing the \wifi{} access of their neighbor APs.
 
 Next, we want to answer the question when the device is in a sub-optimal association
-with its home AP, is there a \textit{dominant} neighbor AP that
-usually provides the best signal among other neighbor APs? If such dominant
-neighbor AP exists, then by just sharing access of this one particular neighbor
-AP, the device's sub-optimal association time can be largely reduced. To this
+with its home AP, are there \textit{dominant} neighbor APs that
+usually provide the best signal among other neighbor APs? If such dominant
+neighbor APs exist, then by just sharing access of several particular neighbor
+APs, the device's sub-optimal association time can be largely reduced. To this
 end, we look at all the scan results in the sub-optimal category, and count the
 number of times that each neighbor AP appears as $AP_{best}$. For each device,
-we calculate the fraction of the dominant neighbor AP. Figure~\ref{fig:dominantap}
-shows the CDF of dominant AP fraction. For 60\% of the devices, one particular
-neighbor AP contributes to more than 50\% of sub-optimal connection time,
-implying that even by sharing \wifi{} access of one neighbor AP, these device's
-sub-optimal connection time can be reduced by more than 60\%.
+we calculate the fraction of the top $n (1 \le n \le 3)$ dominant neighbor APs.
+Figure~\ref{fig:dominantap} shows the CDF of dominant AP fraction. By sharing 1,
+2 or 3 neighbor APs, half the device's sub-optimal connection time can be
+reduced by 55\%, 82\% and 90\% respectively.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{./figures/DominantNeighborAPFigure.pdf}
-  \caption{\textbf{CDF of Dominant AP Fraction.} There is a dominant neighbor AP
-  for most of the \PhoneLab{} devices.}
+  \caption{\textbf{CDF of Dominant AP Fraction.}}
   \label{fig:dominantap}
 \end{figure}
 
