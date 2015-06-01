@@ -1,12 +1,13 @@
 \input{./include/start.tex}
 
 \def\theconference{HotWireless'15}
-\def\thetitle{Investigating Reciprocal \wifi{} Sharing Opportunities Using Smartphones}
+\def\thetitle{A Little Sharing Goes a Long Way:\\The Case for Reciprocal Wifi
+Sharing}
 \def\theauthors{Jinghao Shi, Liwen Gui, Chunming Qiao, Dimitrios Koutsonikolas, and Geoffrey Challen}
+\def\theemails{\{jinghaos,liwengui,qiao,dimitrio,challen\}@buffalo.edu}
 \def\thepapernumber{5}
+
 \def\aftercaptiongap{-4mm}
-%\def\isdraft{}
-%\def\isblue{}
 
 \ifdefined\isdraft
   \usepackage{fancyhdr}
@@ -27,25 +28,33 @@
 \else
 \fi
 
-\title{\thetitle\vspace*{-0.3in}}
+\title{\thetitle}
 
 \numberofauthors{1}
 
-\author{%
-%  \alignauthor Jinghao Shi, Liwen Gui, Chunming Qiao\\Dimitrios Koutsonikolas and Geoffrey Challen\\%
-%  \affaddr{University at Buffalo}\\[0.05in]%
-%  \email{\texttt{\{jinghaos,liwengui,qiao,dimitrio,challen\}@buffalo.edu}}\\
-Paper \#\thepapernumber{}%
-\vspace*{-0.1in}
+\ifdefined\isdraft
+\author{
+  \theauthors\\
+  \affaddr{University at Buffalo}\\
+  \email{\theemails}
+  Paper \#\thepapernumber{}
 }
-
-\hypersetup{%
-  pdfinfo={%
+\hypersetup{
+  pdfinfo={
     Title={\thetitle},
     Author={\theauthors},
   }
 }
-
+\else
+\author{
+  Paper \#\thepapernumber{}
+}
+\hypersetup{
+  pdfinfo={
+    Title={\thetitle},
+  }
+}
+\fi
 
 \maketitle
 
@@ -57,7 +66,7 @@ Paper \#\thepapernumber{}%
 \input{related.tex}
 \input{conclusion.tex}
 
-{\footnotesize
+{\scriptsize
   \bibliographystyle{abbrv}
   \bibliography{references}
 }
