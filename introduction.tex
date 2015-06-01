@@ -2,17 +2,40 @@
 \label{sec-introduction}
 
 Two trends are combining to create increasingly crowded and uncoordinated
-home \wifi{} environments. First, increasing broadband penetration is leading
-larger numbers of users to set up private home access points (APs). Strategy
+home \wifi{} environments. First, increasing broadband penetration is
+creating larger numbers of private home access points (APs). Strategy
 Analytics estimated that by the end of 2014, 451~M households worldwide
-(25\%) would have home \wifi{}, and this number will continue to
-grow~\cite{wifi-survey}. Second, urbanization is causing an increasing
-percentage of the world's population to dwell in close quarters in dense city
-environments. 54\% of the world's population already resides in cities, and
-that number is expected to grow to 66\% by 2050~\cite{urbanization-survey}.
-Together these two trends combine to create a future in which more people
-will operate private home networks that compete for spectrum with other
-nearby private home networks.
+(25\%) would have home \wifi{} and that this number will continue to
+grow~\cite{wifi-survey}. Second, an increasing percentage of the world's
+population resides in dense urban environments: 54\% today and climbing to
+66\% by 2050~\cite{urbanization-survey}. Together these two trends create a
+future where more people will operate private home APs that overlap with
+other nearby private home APs.
+
+\begin{figure}[t]
+  %
+  \includegraphics[width=\columnwidth]{./figures/motivation.pdf}
+  %
+  \caption{\textbf{Example of Reciprocal \wifi{} Sharing.} Solid arrows
+  represent weak connections, while dashed lines represent strong
+  connections.}
+  %
+  \label{fig:motivation}
+  %
+\end{figure}
+
+Unfortunately, uncoordinated deployment of overlapping private networks can
+create interference that degrades performance, which may then cause users to
+respond in ways that further exacerbate the problem. Consider Alice and Bob's
+neighboring apartments shown in Figure~\ref{fig:motivation}. Alice has
+deployed her AP in her living room, while Bob has deployed his in his
+bedroom. Due to the proximity of their apartments, Alice receives a stronger
+signal from Bob's router when she is in her bedroom. But because she cannot
+connect to Bob's router, she must either use the lower-bandwidth connection
+to her existing AP or deploy an additional AP in her bedroom. Both of these
+options generate additional wireless interference for her neighbors,
+including Bob. And while we have used Alice as an example, Bob also faces the
+same poor choice.
 
 However, due to factors such as blockage or fading in wireless signal
 propagation, home \wifi{} AP usually does not provide equally satisfying \wifi{}
@@ -35,15 +58,6 @@ practical to establish the sharing. Second, bonding to physical colocation
 relationship makes the opportunity \textit{stable} over time, enabling
 asynchronous fair sharing over longer period of time.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{./figures/motivation.pdf}
-  \caption{\textbf{An Example of Reciprocal \wifi{} Sharing.} Solid arrows
-    represent existing associations with weak signal. Dashed arrows indicate
-    potentially better associations with stronger \wifi{} signal. Due to different
-  AP placements, users may get a better \wifi{} signal from neighbor APs.}
-  \label{fig:motivation}
-\end{figure}
 
 Nevertheless, there are several challenges in fulfilling the vision of
 reciprocal \wifi{} sharing shown in Figure~\ref{fig:motivation}. First, although
