@@ -79,12 +79,12 @@ that provide better signal most of the time?
 \sloppy{%
   To answer the first question, we inspect scan results that are reported during
   \wifi{} sessions with home APs. For each such scan result, we identify the
-  currently associated home AP, $AP_{home}$, and the AP with best RSSI among all
-  reported APs, denoted as $AP_{best}$. We are particularly interested in
-  \textit{sub-optimal} cases, where: (1) $AP_{home} \neq AP_{best}$ and (2) the
-  device never connects to $AP_{best}$ in the dataset. Such cases indicate that the device
-  could potentially improve its \wifi{} performance by connecting to a neighbor
-  AP which has a strong signal yet it does not have access to that AP. Note that
+  currently associated home AP, $AP_{home}$, and the AP with best RSSI, denoted
+  as $AP_{best}$. We are particularly interested in \textit{sub-optimal} cases,
+  where: (1) $AP_{home} \neq AP_{best}$ and (2) the device never connects to
+  $AP_{best}$ in the dataset. Such cases indicate that the device could
+  potentially improve its \wifi{} performance by connecting to a neighbor AP
+  which has a strong signal yet it does not have access to that AP. Note that
   here we consider RSSI as a hint in determining the \textit{optimal} AP and it
   is well understood that RSSI does not directly translate to \wifi{}
   performance, which we will discuss in Section~\ref{sec:challenges}.  Also note
@@ -100,7 +100,7 @@ that provide better signal most of the time?
   \label{fig:suboptimal}
 \end{figure}
 
-We classify all scan results reported during \wifi{} sessions with home APs into
+We classify all scan results reported during home \wifi{} sessions into
 two categories: sub-optimal and the rest. For each device, we calculate the
 percentage of time when the scan results indicate sub-optimal association.
 Figure~\ref{fig:suboptimal} shows the CDF of this percentage for 
@@ -110,7 +110,7 @@ their home APs usually provides best signal (sub-optimal percentage less than
 usually carefully positioned to provide good coverage. Second, we notice
 that for certain number (15\%) of devices, their home APs failed to provide best
 signal for more than 50\% of the time, suggesting that these users may benefit
-from sharing the \wifi{} access of their neighbor APs.
+from sharing the \wifi{} access of neighbor APs.
 
 Next, we want to answer the question when the device is in a sub-optimal association
 with its home AP, are there \textit{dominant} neighbor APs that

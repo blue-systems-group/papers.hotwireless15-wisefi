@@ -38,14 +38,14 @@ described in Section~\ref{subsec:reciprocal}.
 \label{subsec:sharing}
 
 Once the reciprocal sharing opportunities are discovered, the \wisefi{} server
-can distribute such information to the \wisefi{} application on smartphone,
-which will prompt users to establish \wifi{} sharing. The sharing mechanism must
-meet two goals: control and protection. First, the system should be able to
-control the sharing, including granting the access of home AP to other \wisefi{}
-users, and revoking the access when the reciprocal sharing opportunity no longer
-exists.  Second, the system should protect the home network from other \wisefi{}
-users by sharing access only to the Internet, and protecting private resources
-such as home network printers or storage.
+distributes such information to the \wisefi{} application on smartphone, which
+prompts user to establish \wifi{} sharing. The sharing mechanism must meet two
+goals: \textit{control} and \textit{protection}. First, the system should be
+able to control the sharing, including granting the access of home AP to other
+\wisefi{} users, and more importantly, revoking the access when needed. Second,
+the system should protect the home network from other \wisefi{} users by sharing
+access only to the Internet, and protecting private resources such as home
+network printers or storage.
 
 Some mid-to-high end wireless routers support the \textit{virtual network}
 feature, where multiple virtual \wifi{} networks are emulated by a single router
@@ -78,7 +78,7 @@ all devices is still tedious.
 
 To overcome this challenge, we propose a dynamic \wifi{} AP configuration API
 with two simple interfaces: \texttt{getAuthClients} and \texttt{setWhiteList}.
-The semantics of the interfaces are as follows.  \texttt{getAuthClients} simply
+The semantics of the interfaces are as follows.  \texttt{getAuthClients} 
 returns all the MAC addresses of clients that are currently associated with the
 AP through normal authentication. In home \wifi{} network scenario, this
 interface shall return only the MAC addresses of user's own \wifi{} devices.  On
@@ -133,7 +133,7 @@ sharing remains reciprocal.  There are two reasons why this is necessary: one is
 obvious and another is obscure.
 
 First, it is obviously important to ensure that the sharing remains reciprocal
-in long term to provide incentives for both parties to participate the sharing.
+to provide incentives for both parties to participate the sharing.
 For instance, suppose after the system has established reciprocal \wifi{} sharing
 between Alice and Bob, and Bob decides to deploy an extra AP at his home which
 makes him no longer benefit from sharing Alice's home AP. The system should
