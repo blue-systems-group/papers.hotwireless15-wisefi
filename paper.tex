@@ -4,7 +4,7 @@
 \def\thetitle{A Little Sharing Goes a Long Way:\\The Case for Reciprocal Wifi
 Sharing}
 \def\theauthors{Jinghao Shi, Liwen Gui, Chunming Qiao, Dimitrios Koutsonikolas, and Geoffrey Challen}
-\def\theemails{\{jinghaos,liwengui,qiao,dimitrio,challen\}@buffalo.edu}
+\def\theemails{\texttt{\{jinghaos,liwengui,qiao,dimitrio,challen\}@buffalo.edu}}
 \def\thepapernumber{5}
 
 \def\aftercaptiongap{-4mm}
@@ -32,29 +32,39 @@ Sharing}
 
 \numberofauthors{1}
 
-\ifdefined\isdraft
 \author{
-  \theauthors\\
-  \affaddr{University at Buffalo}\\
-  \email{\theemails}
-  Paper \#\thepapernumber{}
-}
-\hypersetup{
-  pdfinfo={
-    Title={\thetitle},
-    Author={\theauthors},
-  }
-}
-\else
-\author{
-  Paper \#\thepapernumber{}
+  Jinghao Shi, Liwen Gui, Chunming Qiao\\
+  Dimitrios Koutsonikolas, and Geoffrey Challen\\ [2mm]
+  \large{University at Buffalo}\\ [2mm]
+  \email{\large \theemails}
 }
 \hypersetup{
   pdfinfo={
     Title={\thetitle},
   }
 }
-\fi
+
+\newfont{\mycrnotice}{ptmr8t at 7pt}
+\newfont{\myconfname}{ptmri8t at 7pt}
+\let\crnotice\mycrnotice%
+\let\confname\myconfname%
+
+\permission{Permission to make digital or hard copies of all or part of this
+  work for personal or classroom use is granted without fee provided that copies
+  are not made or distributed for profit or commercial advantage and that copies
+  bear this notice and the full citation on the first page. Copyrights for
+  components of this work owned by others than ACM must be honored. Abstracting
+  with credit is permitted. To copy otherwise, or republish, to post on servers
+  or to redistribute to lists, requires prior specific permission and/or a fee.
+Request permissions from Permissions@acm.org.}
+\conferenceinfo{HotWireless'15,}{September 11, 2015, Paris, France.} 
+\copyrightetc{\copyright~2015 ACM. ISBN \the\acmcopyr}
+\crdata{978-1-4503-3699-4/15/09\ ...\$15.00.\\
+DOI: http://dx.doi.org/10.1145/XXXXXX.XXXXXXX}
+% Update the red X's to your assigned DOI from ACM
+%
+\clubpenalty=10000 
+\widowpenalty = 10000
 
 \maketitle
 
