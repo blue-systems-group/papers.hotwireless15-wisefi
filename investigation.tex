@@ -60,7 +60,7 @@ identify the AP which has the largest day count as the device's home AP,
 provided that the day count is larger than a threshold (30 days) to further
 filter out false positives.
 
-After applying the above heuristics, the home AP information of 107 devices are
+After applying the above heuristics, the home AP information of 107 devices is
 identified, including 101 unique BSSIDs. There are 6 BSSIDs that are identified
 as home APs for two devices. After further investigation and clarification with
 \PhoneLab{} administrators, we found this is because some participants are family
@@ -123,7 +123,7 @@ end, we look at all the scan results in the sub-optimal category, and count the
 number of times that each neighbor AP appears as $AP_{best}$. For each device,
 we calculate the fraction of the top $n (1 \le n \le 3)$ dominant neighbor APs.
 Figure~\ref{fig:dominantap} shows the CDF of dominant AP fraction. By sharing 1,
-2 or 3 neighbor APs, half the device's sub-optimal connection time can be
+2 or 3 neighbor APs, the suboptimal connection time for 50\% of the devices can be
 reduced by 55\%, 82\% and 90\% respectively.
 
 \begin{figure}[t]
@@ -143,7 +143,7 @@ purpose, we build a reciprocal sharing graph $G_r=(V, E)$, where $V$ is the set
 of APs, and $\langle AP_i \rightarrow AP_j \rangle \in E$ if $AP_i$'s clients
 receive better signal from $AP_j$, that is, $AP_j$ appears as $AP_{best}$ in the
 scan results of $AP_i$'s clients. Note that according to the definition, $AP_i$
-is one of the identified home APs, while $AP_j$ could be other arbitrary APs.
+is one of the identified home APs, while $AP_j$ could be any other arbitrary AP.
 Loops in $G_r$ represent reciprocal sharing opportunities.
 
 To capture the reciprocal sharing relationships among \PhoneLab{} participants,
@@ -174,7 +174,7 @@ APs, node 0 and 7, which exhibit reciprocal sharing relationships.
 
 We must point out that \PhoneLab{} participants reside sparsely among the vast
 Buffalo area, and the above analysis is further restricted to those participants
-that we can detect their home APs using heuristics described
+whose home AP can be detected using heuristics described
 Section~\ref{subsec:homeap}. The consequence of such sparsity is that most of
 the neighbor APs which can provide better signal are not one of the identified
 home APs, thus are not shown in Figure~\ref{fig:reciprocal}. To quantify the
