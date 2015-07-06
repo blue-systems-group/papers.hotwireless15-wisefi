@@ -53,7 +53,7 @@ hardware, and different network parameters, such as SSID, bandwidth cap, access
 permission, can be enforced separately for each virtual network. This feature is
 typically used to set up a guest \wifi{} network to provide network access to
 temporal visitors yet isolate them from home clients. For home APs with such
-feature, \wifi{} sharing can be achieved by only distributing the credential of
+feature, \wifi{} sharing can be achieved by only distributing the credentials of
 guest network to other \wisefi{} users. Access and bandwidth policies can then
 be enforced on the guest network to achieve control and protection.
 Additionally, such isolation and enforcements are most likely already enabled
@@ -63,17 +63,17 @@ by default for guest networks, so that even inexperienced user can configure the
 For APs without guest network feature, however, cumbersome AP configurations may
 be required by user, such as MAC black or white list, routing table
 modification, etc. Such configurations are most likely too complicated for
-average users to perform. However, simply sharing the \wifi{} credential of user's
+average users to perform. However, simply sharing the \wifi{} credentials of user's
 home AP to other \wisefi{} users is not only dangerous, but also making it
 difficult to revoke the access in the future. In the worst case scenario, a user may
-be forced to change the home AP password and reconfigure the \wifi{} credential
+be forced to change the home AP password and reconfigure the \wifi{} credentials
 on all his/her devices just to revoke the access of the other \wisefi{} user.
 Although most commodity APs support client MAC black or white list feature,
 configuring them properly is difficult for average users. Furthermore, the
 sharing relationship should be built between users instead of devices: once the
 sharing is established, one user should be able to connect any of his/her
 devices, not only the smartphone, to the other user's home AP. Even if the system
-can directly share each other's \wifi{} credential, manually configuring it on
+can directly share each other's \wifi{} credentials, manually configuring it on
 all devices is still tedious.
 
 To overcome this challenge, we propose a dynamic \wifi{} AP configuration API
@@ -110,8 +110,8 @@ perform another \texttt{setWhiteList} request to revoke Bob's access to Alice's
 home AP by removing the MAC addresses of Bob's devices from the white list.
 
 There are several advantages of this sharing approach. First, note that
-throughout the grant and revoke process, the \wifi{} credential of Alice's home
-AP is not shared with Bob or the \wisefi{} server, thus remains confidential.
+throughout the grant and revoke process, the \wifi{} credentials of Alice's home
+AP are not shared with Bob or the \wisefi{} server, thus remain confidential.
 Second, revoking access of other \wisefi{} users simply requires a
 \texttt{setWhiteList} request, without needing to change the user's home AP
 password. Furthermore, the \wisefi{} app can list other \wisefi{}
